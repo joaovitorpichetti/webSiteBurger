@@ -1,5 +1,20 @@
 .blocoOfertas {
-    background-color: #e5d3bf;
-    border-radius: 8px;
-
+    /**background-color: #f4a71b;**/
+    padding: 10px;
+    color: #ffffff; /** #1b8521  #198754 **/
+    text-decoration: none;
 }
+
+.blocoOfertas>div {
+    background-color: #f4a71b;
+    border-radius: 8px;
+    padding: 5px;
+    height: 300px;
+    height: 300px;
+}
+
+.blocoOfertas:hover {
+    background-color: #1b8521;
+    border-radius: 8px;
+}
+
