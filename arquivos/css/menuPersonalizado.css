@@ -1,21 +1,15 @@
 .fundoMenu {
-    background-color: #48240A;
+    background-color: #ffa500b3;  /**#FFA500**/
 }
 
 .btnMenuConf>li>a {
-    color: #ecca44;
+    color: #025428;  /**#025428 verde logo, #b9030e vermelho logo**/
     font-size: 20px;
     font-family: "Arial Black";
 
 }
 
 .btnMenuConf>li>a:hover {
-    color: white;
+    color: #b9030e;
 }
 
-.rodape {
-    background-color: #48240A;
-    color: white;
-}
-
-.teste {}
