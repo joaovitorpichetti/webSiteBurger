@@ -5,6 +5,7 @@
   <title>Faustino Pizza</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="arquivos/css/fecharContaPersonalizado.css" rel="stylesheet">
   <style>
     #mensagem {
       display: none;
@@ -19,17 +20,79 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Adiciona sombra */
       z-index: 9999; /* Garante que a mensagem fique sobre outros elementos */
     }
+
+    #mensagemFechamento {
+      display: none;
+      position: fixed;
+      top: 50%; /* Define a posição no topo */
+      right: 50%; /* Define a posição no canto direito */
+      padding: 20px 40px; /* Ajusta o espaço interno para tornar a mensagem maior */
+      background-color: #a72828; /* Cor de fundo */
+      color: white; /* Cor do texto */
+      font-size: 18px; /* Aumenta o tamanho da fonte */
+      border-radius: 10px; /* Adiciona bordas arredondadas */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Adiciona sombra */
+      z-index: 9999; /* Garante que a mensagem fique sobre outros elementos */
+    }
   </style>
 </head>
 
 <body>
   <div id="mensagem">Garçom chamado com sucesso!</div>
+  <div id="mensagemFechamento">Conta fechada, dirija-se ao Caixa. Volte Sempre!!!</div>
 
   <div id="menu"></div>
 
-  <h1>Página Fechar a Conta</h1>
+  <div class="container my-5">
+    <h2 class="text-center text-success fw-bold mb-4">Fechamento de Conta</h2>
+    <div class="row">
+      <!-- Coluna de itens -->
+      <div class="col-md-8">
+        <!-- Lista de itens -->
+        <div class="mb-3">
+          <h5 class="fw-bold">Refrigerante Coca-cola</h5>
+          <p class="item-descricao">Lata de 350ml</p>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">1 unidade</span>
+            <span class="valor-detalhes">R$8,00</span>
+          </div>
+        </div>
+        <hr>
+        <div class="mb-3">
+          <h5 class="fw-bold">Pizza Lombo</h5>
+          <p class="item-descricao">Deliciosa pizza com molho de tomate, queijo e manjericão fresco.</p>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">2 unidades</span>
+            <span class="valor-detalhes">R$29,99</span>
+          </div>
+        </div>
+        <hr>
+      </div>
 
-  <p>Aqui ficam as contas.</p>
+      <!-- Coluna de valores -->
+      <div class="col-md-4">
+        <div class="p-3 border rounded">
+          <h5 class="fw-bold">Conferência de Valores</h5>
+          <div class="d-flex justify-content-between">
+            <span>Valor refeições:</span>
+            <span class="valor-detalhes">R$59,98</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Valor bebidas:</span>
+            <span class="valor-detalhes">R$8,00</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <span class="fw-bold">Total:</span>
+            <span class="total-final">R$67,98</span>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a id="fecharConta"><button class="btn btn-danger btn-lg w-100">Fechar a Conta</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -55,6 +118,21 @@
             mensagem.style.display = "none";
           }, 3000);
         });
+
+        document.getElementById("fecharConta").addEventListener("click", function(event) {
+          event.preventDefault(); // Evita comportamento padrão, caso necessário.
+
+          const mensagemFechamento = document.getElementById("mensagemFechamento");
+
+          // Exibe a mensagem de fechamento de conta
+          mensagemFechamento.style.display = "block";
+
+          // Remove a mensagem após 3 segundos
+          /*setTimeout(function() {
+            mensagemFechamento.style.display = "none";
+          }, 9000);*/
+        });
+
       } catch (erro) {
         console.error('Erro ao carregar o HTML:', erro);
       }
