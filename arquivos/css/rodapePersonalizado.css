@@ -1,0 +1,19 @@
+.rodape {
+    background-color: #ffa500b3;
+    color: white;
+}
+
+.contato{
+    font-family: "times new rodape", serif;
+    font-size: 20px;
+    color: black;
+}
+.contato>h3 {
+    line-height: 60px;
+}
+.contato>p {
+    line-height: 10px;
+}
+.redesScocias{
+
+}
