@@ -1,0 +1,9 @@
+.produto-img {
+    width: auto; /* Permite a largura original da imagem */
+    height: 200px; /* Permite a altura original da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse os limites do contêiner */
+    max-height: 100%; /* Evita que a imagem fique maior do que o necessário */
+    display: block; /* Remove o espaço extra em torno da imagem */
+    margin: 10px auto; /* Centraliza a imagem horizontalmente */
+}
+
