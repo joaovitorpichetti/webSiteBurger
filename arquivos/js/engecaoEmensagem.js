@@ -1,59 +1,60 @@
-async function carregarHTML(url, elemento) {
+async function carregarHTML(url, seletorElemento, callbackDepoisDeCarregar = null) {
     try {
         const resposta = await fetch(url);
         const html = await resposta.text();
-        document.querySelector(elemento).innerHTML = html;
+        document.querySelector(seletorElemento).innerHTML = html;
 
-        // Mensagem chamar garçom
-        document.getElementById("chamarGarcom").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita recarregar a página
-
-            const mensagem = document.getElementById("mensagem");
-
-            // Exibe a mensagem
-            mensagem.style.display = "block";
-
-            // Remove a mensagem após 3 segundos
-            setTimeout(function() {
-                mensagem.style.display = "none";
-            }, 3000);
-        });
-
-        // Mensagem pedido enviado
-        document.getElementById("btnFazerPedido").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita recarregar a página
-
-            const mensagem = document.getElementById("fazerPedido");
-
-            // Exibe a mensagem
-            mensagem.style.display = "block";
-
-            // Remove a mensagem após 5 segundos
-            setTimeout(function() {
-                mensagem.style.display = "none";
-            }, 5000);
-        });
-
-        //Mensagem conta fechada
-        document.getElementById("fecharConta").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita comportamento padrão, caso necessário.
-
-            const mensagemFechamento = document.getElementById("mensagemFechamento");
-
-            // Exibe a mensagem de fechamento de conta
-            mensagemFechamento.style.display = "block";
-
-            // Remove a mensagem após 3 segundos
-            /*setTimeout(function() {
-              mensagemFechamento.style.display = "none";
-            }, 9000);*/
-        });
+        // Se uma função de callback foi passada, executa após carregar o conteúdo
+        if (typeof callbackDepoisDeCarregar === "function") {
+            callbackDepoisDeCarregar();
+        }
 
     } catch (erro) {
         console.error('Erro ao carregar o HTML:', erro);
     }
 }
 
-// Chama a função para carregar o menu e rodape
-carregarHTML('menu.html', '#menu');
+// Função para adicionar os eventos depois do HTML estar no DOM
+function adicionarEventosGlobais() {
+    // Botão chamar garçom
+    const btnGarcom = document.getElementById("chamarGarcom");
+    if (btnGarcom) {
+        btnGarcom.addEventListener("click", function(event) {
+            event.preventDefault();
+            const mensagem = document.getElementById("mensagem");
+            if (mensagem) {
+                mensagem.style.display = "block";
+                setTimeout(() => mensagem.style.display = "none", 3000);
+            }
+        });
+    }
+
+    // Botão fazer pedido
+    const btnPedido = document.getElementById("btnFazerPedido");
+    if (btnPedido) {
+        btnPedido.addEventListener("click", function(event) {
+            event.preventDefault();
+            const mensagem = document.getElementById("fazerPedido");
+            if (mensagem) {
+                mensagem.style.display = "block";
+                setTimeout(() => mensagem.style.display = "none", 5000);
+            }
+        });
+    }
+
+    // Botão fechar conta
+    const btnFecharConta = document.getElementById("fecharConta");
+    if (btnFecharConta) {
+        btnFecharConta.addEventListener("click", function(event) {
+            event.preventDefault();
+            const mensagemFechamento = document.getElementById("mensagemFechamento");
+            if (mensagemFechamento) {
+                mensagemFechamento.style.display = "block";
+            }
+        });
+    }
+}
+
+// Carrega os componentes HTML e adiciona eventos após o carregamento
+carregarHTML('menu.html', '#menu', adicionarEventosGlobais);
 carregarHTML('rodape.html', '#rodape');
