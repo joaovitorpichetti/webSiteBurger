@@ -41,3 +41,17 @@
     z-index: 9999; /* Garante que a mensagem fique sobre outros elementos */
 }
 
+#mensagemContatoForm {
+    display: none;
+    position: fixed;
+    top: 30%; /* Define a posição no topo */
+    text-align: center;
+    right: 22%; /* Define a posição no canto direito */
+    padding: 20px 40px; /* Ajusta o espaço interno para tornar a mensagem maior */
+    background-color: #faae0b; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    font-size: 40px; /* Aumenta o tamanho da fonte */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Adiciona sombra */
+    z-index: 9999; /* Garante que a mensagem fique sobre outros elementos */
+}

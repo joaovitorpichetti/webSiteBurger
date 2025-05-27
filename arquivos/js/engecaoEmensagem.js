@@ -53,6 +53,7 @@ function adicionarEventosGlobais() {
             }
         });
     }
+
 }
 
 // Carrega os componentes HTML e adiciona eventos após o carregamento
