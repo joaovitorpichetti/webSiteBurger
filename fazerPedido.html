@@ -5,6 +5,7 @@
     <title>Faustino Pizza</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="arquivos/css/fazerPedidoPersonalizado.css" rel="stylesheet">
     <link href="arquivos/css/mensagem.css" rel="stylesheet">
 </head>
@@ -33,9 +34,33 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Pizza Margherita', 29.99)">Pedir</button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <img src="arquivos/img/blocoOferta/Alacarte2.png" class="card-img-top img-fluid produto-img" alt="Pizza Margherita">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Pizza Margherita</h5>
+                        <p class="text-muted">Deliciosa pizza com molho de tomate, queijo e manjericão fresco.</p>
+                        <p class="text-success fw-bold">R$29,99</p>
+                        <!-- Utilizando Input Group para agrupar os botões e o input -->
+                        <div class="input-group justify-content-center">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">-</button>
+                            <input type="text" class="form-control text-center" value="0" style="max-width: 60px;">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">+</button>
+                        </div>
+                        <button class="btn btn-success mt-3" onclick="adicionarAoCarrinho(this, 'Pizza Margherita', 29.99)">Pedir</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
 
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-sm">
@@ -49,6 +74,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Pizza Lombo', 29.99)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -65,6 +91,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Pizza Portuguesa', 29.99)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +109,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Refrigerante Coca-Cola', 8)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -98,6 +126,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Refrigerante Pepsi', 8)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -114,6 +143,8 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <!-- Passa "this" para a função -->
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Refrigerante Sprit', 8)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -130,6 +161,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Rodizio', 39.90)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -146,6 +178,7 @@
                             <input type="text" value="0" class="form-control text-center" style="width: 60px;">
                             <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
                         </div>
+                        <button class="btn btn-success" onclick="adicionarAoCarrinho(this, 'Combo', 45)">Pedir</button>
                     </div>
                 </div>
             </div>
@@ -153,13 +186,14 @@
         </div>
 
         <!-- Botão para enviar pedido -->
-        <div class="text-center mt-4">
+        <!--<div class="text-center mt-4">
             <a id="btnFazerPedido"><button class="btn btn-success btn-lg px-5">Enviar Pedido</button></a>
-        </div>
+        </div>-->
     </div>
 
     <script src="arquivos/js/engecaoEmensagem.js"></script>
     <script src="arquivos/js/manipulaItem.js"></script>
+    <script src="arquivos/js/conta.js"></script>
 
 </body>
 </html>
