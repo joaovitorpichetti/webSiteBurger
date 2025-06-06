@@ -1,13 +1,13 @@
 document.querySelectorAll('.card').forEach((card) => {
-    const btnMais = card.querySelector('.btn-outline-secondary.ms-2');
-    const btnMenos = card.querySelector('.btn-outline-secondary.me-2');
+    const btnMais = card.querySelector('.btn-outline-secondary.ms-0');
+    const btnMenos = card.querySelector('.btn-outline-secondary.me-0');
     const inputQuantidade = card.querySelector('input');
     const btnPedir = card.querySelector('.btn-success');
 
     // Aumenta a quantidade
     btnMais.addEventListener('click', () => {
         let quantidade = parseInt(inputQuantidade.value, 10);
-        inputQuantidade.value = quantidade + 1;
+            inputQuantidade.value = quantidade + 1;
     });
 
     // Diminui a quantidade, mas não deixa ficar menor que 0
@@ -30,8 +30,5 @@ document.querySelectorAll('.card').forEach((card) => {
 
         // Após adicionar ao carrinho, reseta a quantidade
         resetInput(inputQuantidade);
-
-        // Exibe um alerta informando que o pedido foi enviado com sucesso
-        alert("Pedido enviado com sucesso!");
     });
 });

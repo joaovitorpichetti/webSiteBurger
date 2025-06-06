@@ -7,3 +7,14 @@
     margin: 10px auto; /* Centraliza a imagem horizontalmente */
 }
 
+.icone-botao {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.fonte-botao-pedir {
+    font-size: 1.2em;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}

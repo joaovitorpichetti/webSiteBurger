@@ -43,6 +43,9 @@ function adicionarAoCarrinho(btn, nome, preco) {
         carrinho.push({ nome, preco, quantidade });
     }
 
+    // Exibe um alerta informando que o pedido foi enviado com sucesso
+    alert("Pedido enviado com sucesso!");
+
     salvarCarrinho();
     atualizarCarrinho();
 
