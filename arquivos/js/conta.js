@@ -94,38 +94,50 @@ Soma os totais e atualiza o <p id="total">.
 function atualizarCarrinho() {
     const lista = document.getElementById("carrinho");
     const totalDisplay = document.getElementById("total");
+    const totalFinalDisplay = document.querySelector(".total-final");
+    const selectPessoas = document.querySelector(".form-select");
 
     lista.innerHTML = "";
 
     let total = 0;
-    /*
-    Percorre o array carrinho, item por item.
-    Cada item é um objeto com as propriedades: nome, preco, quantidade.
-    const li = document.createElement("li");
-    Cria dinamicamente um novo elemento <li> para representar o item do carrinho.
 
-    Nome do produto (ex: "Camisa") - Preço unitário com duas casas decimais (ex: "R$ 50.00")
-    Quantidade do item no carrinho (ex: "x 2")
-
-    Um botão que, ao ser clicado, chama a função removerItem() passando o nome do item.
-    */
     carrinho.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-      ${item.nome} - R$ ${item.preco.toFixed(2)} x ${item.quantidade} = 
-<strong>R$ ${(item.preco * item.quantidade).toFixed(2)}</strong>
-<button onclick="removerItem('${item.nome}')">Remover</button>
+        const divItem = document.createElement("div");
+        divItem.classList.add("mb-3");
+
+        divItem.innerHTML = `
+        <h5 class="fw-bold">${item.nome}</h5>
+        <p class="item-descricao">Valor Unitário: R$ ${item.preco.toFixed(2)}</p>
+        <div class="d-flex justify-content-between">
+            <span class="text-muted">${item.quantidade} unidade(s)</span>
+            <span class="valor-detalhes">R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+        </div>
+        <!--<button class="btn btn-outline-secondary mt-2" onclick="removerItem('$ {item.nome}')">Remover</button> -->
+        <hr>
     `;
-        /*
-        Adiciona o elemento <li> recém-criado à <ul> do carrinho (referenciada pela variável lista).
-        Isso faz o item aparecer visualmente na página.
-        */
-        lista.appendChild(li);
+
+        lista.appendChild(divItem);
         total += item.preco * item.quantidade;
     });
 
-    totalDisplay.textContent = `Total: R$ ${total.toFixed(2)}`;
+    totalDisplay.textContent = `R$ ${total.toFixed(2)}`;
+
+    // Atualiza o total por pessoa automaticamente
+    updateTotalFinal(total, selectPessoas.value);
+
+    // Atualiza sempre que o número de pessoas mudar
+    selectPessoas.addEventListener("change", function () {
+        updateTotalFinal(total, this.value);
+    });
 }
+
+function updateTotalFinal(total, pessoas) {
+    pessoas = parseInt(pessoas) || 1;
+    document.querySelector(".total-final").textContent = `R$ ${(total / pessoas).toFixed(2).replace(".", ",")}`;
+}
+
 
 // Inicializa carrinho ao carregar página
 atualizarCarrinho();
+
+

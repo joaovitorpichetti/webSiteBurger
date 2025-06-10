@@ -22,24 +22,7 @@
       <!-- Coluna de itens -->
       <div class="col-md-8">
         <!-- Lista de itens -->
-        <div class="mb-3">
-          <h5 class="fw-bold">Refrigerante Coca-cola</h5>
-          <p class="item-descricao">Lata de 350ml</p>
-          <div class="d-flex justify-content-between">
-            <span class="text-muted">1 unidade</span>
-            <span class="valor-detalhes">R$8,00</span>
-          </div>
-        </div>
-        <hr>
-        <div class="mb-3">
-          <h5 class="fw-bold">Pizza Lombo</h5>
-          <p class="item-descricao">Deliciosa pizza com molho de tomate, queijo e manjericão fresco.</p>
-          <div class="d-flex justify-content-between">
-            <span class="text-muted">2 unidades</span>
-            <span class="valor-detalhes">R$29,99</span>
-          </div>
-        </div>
-        <hr>
+        <div id="carrinho"></div>
       </div>
 
       <!-- Coluna de valores -->
@@ -48,12 +31,27 @@
           <h5 class="fw-bold">Conferência de Valores</h5>
           <div class="d-flex justify-content-between">
             <span>Valor:</span>
-            <span class="valor-detalhes"><p id="total">Total: R$ 0,00</p></span>
+            <span class="valor-detalhes"><p id="total">R$ 0,00</p></span>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <label for="select-pessoas" class="me-2">Dividir por:</label>
+            <select id="select-pessoas" class="form-select">
+              <option value="1" selected>1 pessoa</option>
+              <option value="2">2 pessoas</option>
+              <option value="3">3 pessoas</option>
+              <option value="4">4 pessoas</option>
+              <option value="5">5 pessoas</option>
+              <option value="6">6 pessoas</option>
+              <option value="7">7 pessoas</option>
+              <option value="8">8 pessoas</option>
+              <option value="9">9 pessoas</option>
+              <option value="10">10 pessoas</option>
+            </select>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
             <span class="fw-bold">Total:</span>
-            <span class="total-final">R$67,98</span>
+            <span class="total-final">R$ 0,00</span>
           </div>
         </div>
         <div class="text-center mt-4">
@@ -62,9 +60,10 @@
       </div>
     </div>
   </div>
-  <ul id="carrinho"></ul>
 
   <div id="rodape"></div>
+
+  <button id="limpar" onclick="limparCarrinho()"><i class="bi bi-trash3" style="font-size: 10px;"> Limpar carrinho</i></button>
 
   <script src="arquivos/js/engecaoEmensagem.js"></script>
   <script src="arquivos/js/conta.js"></script>

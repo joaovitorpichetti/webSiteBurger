@@ -11,3 +11,14 @@
     font-weight: bold;
     color: #dc3545;
 }
+
+.form-select {
+    width: 120px; /* Reduz a largura */
+    height: 40px;
+    padding: 4px; /* Ajusta o espaçamento interno */
+    font-size: 16px; /* Diminui o tamanho da fonte */
+    text-align: left; /* Centraliza o texto */
+    cursor: pointer; /* Mostra que é interativo */
+
+}
+
